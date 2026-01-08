@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 100,
+      "required": true
+    },
+    "event_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-category.event-category"
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "StartTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "EndTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "EventStatus": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Coming",
+      "enum": [
+        "Opened",
+        "Opening",
+        "Coming"
+      ]
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
